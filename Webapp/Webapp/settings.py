@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'Webapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # Sử dụng MySQL
-        'NAME': 'imag_app_db',  # Thay bằng tên database của bạn
+        'NAME': 'image_app_db',  # Thay bằng tên database của bạn
         'USER': 'root',  # User mặc định của XAMPP
         'PASSWORD': '',  # Mật khẩu MySQL (để trống nếu chưa đặt)
         'HOST': 'localhost',  # Máy chủ MySQL
