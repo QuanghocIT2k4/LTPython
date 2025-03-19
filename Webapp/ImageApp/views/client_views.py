@@ -1,5 +1,6 @@
 import jwt
 import datetime
+from datetime import datetime, timezone
 
 from rest_framework import status
 from rest_framework.response import Response
@@ -39,8 +40,8 @@ class ClientLoginUserAPIView(APIView):
             # Tạo access token thủ công, không dùng Django Auth
             payload = {
                 "user_id": user.id,
-                "exp": datetime.datetime.utcnow() + datetime.timedelta(hours=2),  # Token hết hạn sau 2 giờ
-                "iat": datetime.datetime.utcnow()
+                "exp": datetime.now(timezone.utc) + datetime.timedelta(hours=2),
+                "iat": datetime.now(timezone.utc)
             }
             access_token = jwt.encode(payload, settings.SECRET_KEY, algorithm="HS256")
 
