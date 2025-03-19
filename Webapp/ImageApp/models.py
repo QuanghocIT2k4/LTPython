@@ -6,6 +6,12 @@ class User(models.Model):
     email = models.EmailField(unique=True)
     password_hash = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
+    class Meta:
+        db_table = "imageapp_user"  # Trỏ model User vào bảng imageapp_user
+    
+    @property
+    def is_authenticated(self):
+        return True  # Django yêu cầu thuộc tính này để xác thực user
 
 class Chat(models.Model):
     id = models.AutoField(primary_key=True)  # Sử dụng AutoField để tự động tạo id

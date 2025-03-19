@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(fpop33k09%3%v9l3lz2j--k*ayfq_f1l^#$cwx*sjpxs-v@e7'
+SECRET_KEY = '123'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -132,11 +132,16 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# AUTH_USER_MODEL = 'ImageApp.User'
-
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': [],
 }
+
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "sandbox.smtp.mailtrap.io" 
+EMAIL_PORT = 2525
+EMAIL_HOST_USER = "99ed04365f215d"  # Thay bằng user từ Mailtrap
+EMAIL_HOST_PASSWORD = "c75ac3c6d38a54"  # Thay bằng password từ Mailtrap
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = "IMAGEWEBAPP"
